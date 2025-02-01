@@ -36,3 +36,8 @@ func (s *Server) Run() error {
 	slog.Info("starting server", "addr", listenAddr)
 	return http.ListenAndServe(listenAddr, s.Mux)
 }
+
+func (s *Server) WithMux(mux *http.ServeMux) *Server {
+	s.Mux = mux
+	return s
+}
