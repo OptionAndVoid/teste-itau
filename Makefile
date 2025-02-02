@@ -12,6 +12,10 @@ all: run
 run:
 	@go run $(SRC_DIR)/main.go
 
+.PHONY: runtls
+runtls:
+	@go run $(SRC_DIR)/main.go ./server.key ./server.crt
+
 $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
 

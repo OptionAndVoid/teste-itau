@@ -29,6 +29,17 @@ func main() {
 	logging.SetDefaultJSONLogger(os.Stdout, nil)
 	slog.Info("Loggin setup de cria")
 
+	is_tls := false
+	if len(os.Args) == 0 {
+		slog.Info("Running without tls")
+	} else if len(os.Args) == 3 {
+		is_tls = true
+		slog.Info("Running with tls")
+	} else {
+		slog.Error("Please run with 0 args (for no tls) or with 2 args (for tls)")
+		os.Exit(1)
+	}
+
 	// create "db" data structure
 	registry := registry.NewTransactionRegistry()
 
@@ -59,5 +70,17 @@ func main() {
 		WithMux(mux)
 
 	// run api
-	server.Run()
+	if is_tls {
+		err := server.RunWithTls(os.Args[1], os.Args[2])
+		if err != nil {
+			slog.Error("tls run failed", "error", err.Error())
+			os.Exit(1)
+		}
+	} else {
+		err := server.Run()
+		if err != nil {
+			slog.Error("tls run failed", "error", err.Error())
+			os.Exit(1)
+		}
+	}
 }
