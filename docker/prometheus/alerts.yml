@@ -1,0 +1,11 @@
+groups:
+  - name: application-alerts
+    rules:
+      - alert: itauApiDown 
+        expr: up{job="go-metrics"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Go API is down"
+          description: "No targets are reachable for the go itaú API service for 1 minute."
