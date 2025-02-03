@@ -65,12 +65,6 @@ Desenvolvida em Go em vez de Java 8!
    make runtls
    ```
 
-3. **Build**
-
-```bash
-make build  # Outputs to ./bin
-```
-
 ## Extras
 
 ### 📈 Métricas Para Prometheus
