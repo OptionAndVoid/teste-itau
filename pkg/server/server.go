@@ -14,7 +14,6 @@ type Server struct {
 }
 
 func NewServer() *Server {
-	slog.Info("Server setup deu bom")
 	return &Server{
 		Mux:  nil,
 		host: "localhost",
