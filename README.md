@@ -15,16 +15,26 @@ Desenvolvida em Go em vez de Java 8!
 
 .\
 ├── Makefile\
+├── README.md\
 ├── cmd\
-│ └── teste-itau\
-│ └── main.go\
+│   └── teste-itau # A main está aqui\
+├── docker\
+│   ├── api # Dockerfile da aplicação principal\
+│   ├── grafana # Configurações do Grafana\
+│   └── prometheus # Configurações do Prometheus\
+├── docker-compose.yaml\
+├── enunciado.md # Enúnciado original do teste técnico\
+├── go.mod\
+├── go.sum\
 ├── internal\
-│ ├── api # Os handlers e rotas da API\
-│ └── registry # Lógica da nossa estrutura de dados usada como db\
+│   ├── api # Os handlers e rotas da API\
+│   └── registry # Lógica da nossa estrutura de dados usada como db\
 ├── pkg\
-│ ├── logging # Setup de log\
-│ └── server # Cofiguração do Servidor\
-└── ssl_credentials # Certificados SSL auto-assinados.
+│   ├── logging # Setup de Log estruturado\
+│   └── server # Configuração do Servidor\
+└── ssl_credentials # Certificados SSL auto-assinados\
+    ├── server.crt\
+    └── server.key
 
 ---
 
@@ -120,3 +130,8 @@ para serem usadas pela API.
 ### ✅ Rota de Healthcheck
 
 Basta pingar na rota ```/healthcheck``` para saber se a API está saudável e de pé!
+
+### 📝 Log Estruturado
+
+Utilizamos o pacote slog para produzir Log Estruturado em Json, pronto para ser consumido
+por serviços de consumo de log como ElasticSearch, LogStash e Kibana (ELK Stack).
