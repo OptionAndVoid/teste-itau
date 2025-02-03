@@ -64,7 +64,7 @@ func main() {
 
 	// setup server
 	server := server.NewServer().
-		WithHost("localhost").
+		WithHost("0.0.0.0").
 		WithPort(8080).
 		WithMux(mux)
 
