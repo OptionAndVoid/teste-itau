@@ -13,18 +13,18 @@ Desenvolvida em Go em vez de Java 8!
 
 ## 📂 Estrutura do Projeto **
 
-.
-├── Makefile
-├── cmd
-│ └── teste-itau
-│ └── main.go
-├── internal
-│ ├── api # Os handlers e rotas da API
-│ └── registry # Lógica da nossa estrutura de dados usada como db
-├── pkg
-│ ├── logging # Setup de log
-│ └── server # Cofiguração do Servidor
-└── ssl_credentials # Certificados SSL autoassinados.
+.\
+├── Makefile\
+├── cmd\
+│ └── teste-itau\
+│ └── main.go\
+├── internal\
+│ ├── api # Os handlers e rotas da API\
+│ └── registry # Lógica da nossa estrutura de dados usada como db\
+├── pkg\
+│ ├── logging # Setup de log\
+│ └── server # Cofiguração do Servidor\
+└── ssl_credentials # Certificados SSL autoassinados.\
 
 ---
 
