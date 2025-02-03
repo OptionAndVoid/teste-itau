@@ -60,21 +60,21 @@ Desenvolvida em Go em vez de Java 8!
 
 ### Como Rodar?
 
-1. Somente a API
+#### Somente a API
 
-1.1 **Sem TLS**:
+**Sem TLS**:
 
    ```bash
    make run
    ```
 
-1.2 **Com TLS**
+**Com TLS**:
 
    ```bash
    make runtls
    ```
 
-2. No Docker Compose (Com Grafana e Prometheus)
+#### No Docker Compose (Com Grafana e Prometheus)
 
 ```bash
 docker compose up
