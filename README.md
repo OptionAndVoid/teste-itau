@@ -54,7 +54,7 @@ Desenvolvida em Go em vez de Java 8!
 - Go 1.20+
 - Make (opcional (mas recomendado xD))
 
-1. Para Rodar no Compose
+2. Para Rodar no Compose
 
 - docker compose
 
@@ -68,13 +68,13 @@ Desenvolvida em Go em vez de Java 8!
    make run
    ```
 
-1.1 **Com TLS**
+1.2 **Com TLS**
 
    ```bash
    make runtls
    ```
 
-1. No Docker Compose (Com Grafana e Prometheus)
+2. No Docker Compose (Com Grafana e Prometheus)
 
 ```bash
 docker compose up
