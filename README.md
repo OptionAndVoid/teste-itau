@@ -11,7 +11,7 @@ Desenvolvida em Go em vez de Java 8!
 
 ---
 
-## 📂 Estrutura do Projeto **
+## 📂 Estrutura do Projeto
 
 .\
 ├── Makefile\
