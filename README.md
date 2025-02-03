@@ -39,8 +39,9 @@ Desenvolvida em Go em vez de Java 8!
 - **Extras**:  
   - `/metrics`: Métricas para o Prometheus.
   - `/healthcheck`: Monitoramento de saúde da API.
-  - **Suporte para TLS**: Conexão encriptada
+  - **Suporte para TLS**: Conexão encriptada.
   - **Swagger UI** (WIP).
+  - **Observabilidade**: Grafana e Prometheus no compose.
 
 ---
 
@@ -48,24 +49,44 @@ Desenvolvida em Go em vez de Java 8!
 
 ### Pré-Requisitos
 
+1. Para Rodar Local
+
 - Go 1.20+
 - Make (opcional (mas recomendado xD))
 
+1. Para Rodar no Compose
+
+- docker compose
+
 ### Como Rodar?
 
-1. **Sem TLS**:
+1. Somente a API
+
+1.1 **Sem TLS**:
 
    ```bash
    make run
    ```
 
-2. **Com TLS**
+1.1 **Com TLS**
 
    ```bash
    make runtls
    ```
 
+1. No Docker Compose (Com Grafana e Prometheus)
+
+```bash
+docker compose up
+```
+
 ## Extras
+
+### 🐳 Tudo em Containers
+
+Além de nossa aplicação principal estar 'containerizada',
+temos um compose com serviços extras de observabilidade
+para constante monitoramento de nossa API.
 
 ### 📈 Métricas Para Prometheus
 
@@ -74,14 +95,28 @@ As métricas exportadas são sobre o runtime de Go e o quanto de recursos que a 
 está utilizando.
 As métricas estão disponíveis em: ```http(s)://localhost:8080/metrics```
 
+### 📊 Dashboard No Grafana
+
+Configuramos um container de Grafana para monitoramento visual das métricas
+de uso de recursos da API em Go!
+Basta acessar localhost:3000 e entrar com usuário e senha "admin"
+(sim, uma senha super forte xD), ir em "dashboards" e você poderá monitorar o uso
+de recursos da API em tempo real!
+
+### 🚨 Alerta No Prometheus
+
+Além de configurar métricas, nós fizemos a configuração de um alerta! Caso a API
+esteja fique incomunicável por um minuto, um alerta é gerado pelo Prometheus,
+podendo posteriormente ser automatizado para ser colocado no slack,
+ser enviado por email, ou enviado por quaisquer canais que o AllertManager suporte!
+Para ver os alertas, basta ir em ```localhost:9090``` e ir até "alerts".
+
 ### 🔒 TLS
 
 Fizemos também configuração de TLS para rodar com https!
-Geramos um par .key e .crt autoassinados na pasta ./ssl_credentials
+Geramos um par .key e .crt auto-assinados na pasta ./ssl_credentials
 para serem usadas pela API.
 
 ### ✅ Rota de Healthcheck
 
 Basta pingar na rota ```/healthcheck``` para saber se a API está saudável e de pé!
-
-
