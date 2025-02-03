@@ -24,11 +24,11 @@ Desenvolvida em Go em vez de Java 8!
 ├── pkg\
 │ ├── logging # Setup de log\
 │ └── server # Cofiguração do Servidor\
-└── ssl_credentials # Certificados SSL autoassinados.\
+└── ssl_credentials # Certificados SSL auto-assinados.
 
 ---
 
-## 🚀 Feature
+## 🚀 Features
 
 - **Endpoints Obrigatórios**:
   - `POST /transacao`: Valida e guarda transações.
